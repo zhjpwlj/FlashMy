@@ -1,0 +1,80 @@
+body {
+  margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f0f0; color: #222;
+  transition: background 0.3s, color 0.3s;
+}
+body.dark {
+  background: #121212; color: #ddd;
+}
+.hidden { display: none; }
+header {
+  background: #6200ee; color: white; padding: 1rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+button {
+  background: #6200ee; border: none; color: white; padding: 0.5rem 1rem;
+  border-radius: 4px; cursor: pointer;
+  margin: 0 0.2rem;
+  transition: background 0.3s;
+}
+button:hover {
+  background: #3700b3;
+}
+nav {
+  background: #eee; padding: 0.5rem; display: flex; justify-content: center;
+}
+nav button {
+  background: transparent; color: #6200ee; border: 2px solid #6200ee;
+}
+nav button.active, nav button:hover {
+  background: #6200ee; color: white;
+}
+main {
+  padding: 1rem; max-width: 900px; margin: 0 auto;
+}
+input, textarea {
+  width: 100%; padding: 0.5rem; margin: 0.5rem 0;
+  border: 1px solid #ccc; border-radius: 4px;
+  font-size: 1rem;
+  background: white;
+  color: black;
+}
+body.dark input, body.dark textarea {
+  background: #222; color: #ddd; border-color: #555;
+}
+#cards-list > div {
+  border: 1px solid #ccc; border-radius: 4px;
+  padding: 0.5rem; margin-bottom: 0.5rem;
+  background: white;
+  display: flex; gap: 1rem;
+}
+body.dark #cards-list > div {
+  background: #222; border-color: #555;
+}
+.card-term, .card-definition {
+  flex: 1;
+}
+.card-remove {
+  background: #b00020;
+}
+#study-mode-select button {
+  margin-right: 0.5rem;
+}
+#study-mode-select button.active {
+  background: #3700b3;
+}
+#study-area {
+  margin-top: 1rem;
+  min-height: 200px;
+  border: 2px solid #6200ee;
+  border-radius: 8px;
+  padding: 1rem;
+  background: white;
+  color: black;
+}
+body.dark #study-area {
+  background: #222; color: #ddd; border-color: #bb86fc;
+}
+#stats-chart {
+  max-width: 100%;
+}
