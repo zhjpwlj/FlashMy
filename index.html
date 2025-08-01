@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>超级闪卡 - SRS学习</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="manifest" href="manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-title" content="超级闪卡" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+</head>
+<body>
+<div id="loading">加载中...</div>
+
+<div id="auth" class="hidden">
+  <h2>登录</h2>
+  <button id="btn-google">Google 登录</button>
+  <form id="email-form">
+    <input id="email" type="email" placeholder="邮箱" required />
+    <input id="password" type="password" placeholder="密码" required />
+    <button type="submit">邮箱登录 / 注册</button>
+  </form>
+</div>
+
+<div id="main" class="hidden">
+  <header>
+    <h1>超级闪卡</h1>
+    <button id="btn-logout">登出</button>
+    <button id="btn-theme-toggle">切换暗/亮模式</button>
+  </header>
+
+  <nav>
+    <button id="nav-sets">我的卡组</button>
+    <button id="nav-study">学习模式</button>
+    <button id="nav-public">公开卡组</button>
+    <button id="nav-stats">学习统计</button>
+  </nav>
+
+  <main>
+    <section id="sets-section" class="hidden">
+      <h2>我的卡组</h2>
+      <button id="btn-create-set">新建卡组</button>
+      <div id="sets-list"></div>
+    </section>
+
+    <section id="set-edit-section" class="hidden">
+      <h2>编辑卡组</h2>
+      <input id="set-title" placeholder="卡组标题" />
+      <textarea id="set-desc" placeholder="描述"></textarea>
+      <div id="cards-list"></div>
+      <button id="btn-add-card">添加卡片</button>
+      <button id="btn-save-set">保存卡组</button>
+      <button id="btn-cancel-edit">取消</button>
+    </section>
+
+    <section id="study-section" class="hidden">
+      <h2 id="study-title"></h2>
+      <div id="study-mode-select">
+        <button data-mode="flip" class="active">翻牌模式</button>
+        <button data-mode="spell">拼写模式</button>
+        <button data-mode="quiz">测验模式</button>
+      </div>
+      <div id="study-area"></div>
+      <button id="btn-exit-study">退出学习</button>
+    </section>
+
+    <section id="public-sets-section" class="hidden">
+      <h2>公开卡组</h2>
+      <input type="search" id="public-search" placeholder="搜索卡组..." />
+      <div id="public-sets-list"></div>
+    </section>
+
+    <section id="stats-section" class="hidden">
+      <h2>学习统计</h2>
+      <canvas id="stats-chart" width="400" height="200"></canvas>
+    </section>
+  </main>
+</div>
+
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(() => console.log('Service Worker 注册成功'))
+      .catch(() => console.warn('Service Worker 注册失败'));
+  }
+</script>
+</body>
+</html>
