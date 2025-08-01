@@ -3,12 +3,13 @@ import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "你的API_KEY",
-  authDomain: "你的PROJECT_ID.firebaseapp.com",
-  projectId: "你的PROJECT_ID",
-  storageBucket: "你的PROJECT_ID.appspot.com",
-  messagingSenderId: "你的消息发送ID",
-  appId: "你的APP_ID"
+  apiKey: "AIzaSyARt1QFtQfxJO17pFb7Pk5tUd8kf8h4tV8",
+  authDomain: "flashmy-zhjpwlj.firebaseapp.com",
+  projectId: "flashmy-zhjpwlj",
+  storageBucket: "flashmy-zhjpwlj.firebasestorage.app",
+  messagingSenderId: "741150764398",
+  appId: "1:741150764398:web:40aaae6a268b5a698fe57f",
+  measurementId: "G-5ZM4MN8H3Z"
 };
 
 export const app = initializeApp(firebaseConfig);
