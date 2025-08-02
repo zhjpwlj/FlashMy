@@ -1,10 +1,10 @@
 {
   "name": "FlashMy",
   "short_name": "FlashMy",
-  "start_url": ".",
+  "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#f0f0f0",
-  "theme_color": "#6200ee",
+  "background_color": "#ffffff",
+  "theme_color": "#2ecc71",
   "icons": [
     {
       "src": "icons/icon-192.png",
