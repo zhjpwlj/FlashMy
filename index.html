@@ -45,30 +45,33 @@
 </header>
 
 <main>
+  <!-- 登录/注册区域 -->
   <section id="authSection">
     <button id="googleLoginBtn" data-i18n="googleLogin">用 Google 登录</button>
+
+    <h2 data-i18n="registerTitle">注册新账号</h2>
+    <form id="emailRegisterForm">
+      <input type="email" id="regEmail" placeholder="" data-i18n-placeholder="emailPlaceholder" required />
+      <input type="password" id="regPassword" placeholder="" data-i18n-placeholder="passwordPlaceholder" required />
+      <button type="submit" data-i18n="registerBtn">注册</button>
+    </form>
+
+    <h2 data-i18n="loginTitle">已有账号登录</h2>
     <form id="emailLoginForm">
       <input type="email" id="emailInput" placeholder="" data-i18n-placeholder="emailPlaceholder" required />
       <input type="password" id="passwordInput" placeholder="" data-i18n-placeholder="passwordPlaceholder" required />
       <button type="submit" data-i18n="login">登录</button>
     </form>
- 
   </section>
-      <section id="registerSection">
-  <h2 data-i18n="registerTitle">注册新账号</h2>
-  <form id="emailRegisterForm">
-    <input type="email" id="regEmail" placeholder="" data-i18n-placeholder="emailPlaceholder" required />
-    <input type="password" id="regPassword" placeholder="" data-i18n-placeholder="passwordPlaceholder" required />
-    <button type="submit" data-i18n="registerBtn">注册</button>
-  </form>
-</section>
 
+  <!-- 闪卡列表 -->
   <section id="flashcardSection" hidden>
     <button id="createSetBtn" data-i18n="createSet">新建闪卡集</button>
     <input type="text" id="searchPublicSets" placeholder="" data-i18n-placeholder="searchPlaceholder" />
     <div id="flashcardSetList"></div>
   </section>
 
+  <!-- 学习页面 -->
   <section id="studySection" hidden>
     <h2 id="studySetTitle"></h2>
     <div id="modeControls">
@@ -87,17 +90,18 @@
     <button id="nextCardBtn" data-i18n="nextCardBtn">下一张</button>
   </section>
 
+  <!-- 仪表盘 -->
   <section id="dashboardSection" hidden>
     <h2 data-i18n="dashboardTitle">学习仪表盘</h2>
     <canvas id="statsChart"></canvas>
   </section>
 
+  <!-- 导入导出 -->
   <section id="importExportSection" hidden>
     <h2 data-i18n="importExportTitle">导入导出</h2>
     <input type="file" id="csvImportInput" accept=".csv" />
     <button id="exportCsvBtn" data-i18n="exportCsvBtn">导出为 CSV</button>
   </section>
-
 </main>
 
 </body>
