@@ -1,38 +1,88 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlashMy - 超级闪卡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FlashMy - 高级闪卡学习</title>
+
+  <link rel="stylesheet" href="styles.css" />
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles/styles.css" />
-  <link rel="icon" href="icons/icon-192.png" />
+
+  <!-- MathJax 支持 -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="auth.js"></script>
+  <script type="module" src="fsrs.js"></script>
+  <script type="module" src="study.js"></script>
+  <script type="module" src="import-export.js"></script>
+  <script type="module" src="tags-history.js"></script>
+  <script type="module" src="dashboard.js"></script>
+  <script type="module" src="notifications.js"></script>
+  <script type="module" src="theme.js"></script>
+  <script type="module" src="share-collab.js"></script>
+
 </head>
 <body>
-  <header>
-    <h1>⚡ FlashMy</h1>
-    <nav id="auth-controls">
-      <button id="btn-google-signin">Google 登录</button>
-      <input type="email" id="email" placeholder="邮箱" />
-      <input type="password" id="password" placeholder="密码" />
-      <button id="btn-email-login">邮箱登录</button>
-      <button id="btn-signout" hidden>登出</button>
-    </nav>
-  </header>
 
-  <main id="app-container">
-    <section id="flashcard-view"></section>
-    <section id="study-controls"></section>
-    <section id="stats-view"></section>
-    <section id="set-list"></section>
-    <section id="plugin-area"></section>
-  </main>
+<header>
+  <h1>FlashMy</h1>
+  <nav>
+    <button id="loginBtn">登录</button>
+    <button id="logoutBtn" style="display:none;">退出</button>
+    <select id="themeSelector" aria-label="主题切换">
+      <option value="light">浅色模式</option>
+      <option value="dark">深色模式</option>
+      <option value="custom">自定义主题</option>
+    </select>
+  </nav>
+</header>
 
-  <footer>
-    <p>© 2025 FlashMy</p>
-  </footer>
+<main>
+  <section id="authSection">
+    <button id="googleLoginBtn">用 Google 登录</button>
+    <form id="emailLoginForm">
+      <input type="email" id="emailInput" placeholder="邮箱" required />
+      <input type="password" id="passwordInput" placeholder="密码" required />
+      <button type="submit">登录</button>
+    </form>
+  </section>
 
-  <!-- 主入口模块 -->
-  <script type="module" src="app/main.js"></script>
+  <section id="flashcardSection" hidden>
+    <button id="createSetBtn">新建闪卡集</button>
+    <input type="text" id="searchPublicSets" placeholder="搜索公开闪卡" />
+    <div id="flashcardSetList"></div>
+  </section>
+
+  <section id="studySection" hidden>
+    <h2 id="studySetTitle"></h2>
+    <div id="modeControls">
+      <select id="modeSelect">
+        <option value="flip">翻牌模式</option>
+        <option value="typing">打字模式</option>
+        <option value="listening">听写模式</option>
+        <option value="blast">Blast 模式</option>
+        <option value="multipleChoice">选择题模式</option>
+      </select>
+      <button id="reverseBtn">反向切换</button>
+    </div>
+    <div id="cardContainer"></div>
+    <button id="nextCardBtn">下一张</button>
+    <button id="prevCardBtn">上一张</button>
+  </section>
+
+  <section id="dashboardSection" hidden>
+    <h2>学习仪表盘</h2>
+    <canvas id="statsChart"></canvas>
+  </section>
+
+  <section id="importExportSection" hidden>
+    <h2>导入导出</h2>
+    <input type="file" id="csvImportInput" accept=".csv" />
+    <button id="exportCsvBtn">导出为 CSV</button>
+  </section>
+
+</main>
+
 </body>
 </html>
